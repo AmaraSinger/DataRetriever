@@ -1,0 +1,1 @@
+I found this at https://bitbucket.org/MostThingsWeb/css2xpath-reloaded/src/master/, though I downloaded and compiled from source myself. I left the license here, too.
