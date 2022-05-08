@@ -5,5 +5,19 @@
 }
 <h1>@ViewData["Title"]</h1>
 
-<p>This is a test!</p>
-
+        
+<body class="vscode-body vscode-light">
+    <h1 id="design-document">Design Document</h1>
+<p>This file should discuss how you implemented your project and why you made the design decisions you did, both technical and ethical. Your design document as a whole should be at least several paragraphs in length. Whereas your <a href="http://README.html">README.md</a> is meant to be a user’s manual, consider your <a href="http://DESIGN.html">DESIGN.md</a> your opportunity to give the staff a tour of your project underneath its hood.</p>
+<h2 id="technical-decisions">Technical Decisions</h2>
+<h3 id="in-this-section-share-and-justify-the-technical-decisions-you-made">In this section, share and justify the technical decisions you made.</h3>
+<p>My original goal was a bit optimistic; I only ended up getting to the &quot;good&quot; implementation. A challenge I hit was the complexity of creating an html console explorer; I might implement a command-line tool with this functionality at a later date, with no time limit. Under the hood, though, it works similar to how you'd expect. The homepage is made up of two forms: the first sends a post request to the same page that assigns the url. The second sends a get request to the results page and passes the url and the selector. The Scraper class handles the actual scraping and selecting. When a user loads the results page, a Scraper instance scrapes the url, selects the elements, and passes back the elements. The results page handles formatting and element creation. The reason I left the real heavy-lifting to the results page is so there's less wait time on the main page. The &quot;url loading&quot; is a vestigial feature from when there was going to be multiple methods of scraping elements.
+I used dotnet to make this tool; more specifically, <a href="http://ASP.NET">ASP.NET</a>. I can't say I reccomend ASP. It's fairly clunkly working in two languages at once, since C# and Javascript have no real interaction (js is client-sided and c# is server-sided, so you can't pass variables from js to c#). Strange, since I normally love C# with really any other use case.</p>
+<h2 id="ethical-decisions">Ethical Decisions</h2>
+<h3 id="what-motivated-you-to-complete-this-project-what-features-did-you-want-to-create-and-why">What motivated you to complete this project? What features did you want to create and why?</h3>
+<p>The project was designed to be easy to use. I wanted features that didn't take long to get the hang of, and a tool that could easily be re-used over and over again with minimal effort. Thus, data retriever was born. When used in combo with something like SelectorGadget, the tool can use two copy-pastes and two button presses to get data much faster than manual.</p>
+<h3 id="who-are-the-intended-users-of-your-project-what-do-they-want-need-or-value">Who are the intended users of your project? What do they want, need, or value?</h3>
+<p>I made this project with research projects in mind. I wanted to make a tool where users could quickly fetch data from sites and turn it into raw text files for quick manipulation. I plan to use this tool myself in research project for quick data compilation. This tool was never meant to access information behind paywalls, which is why it didn't end up using browser spoofing like selenium. Indirect use wouldn't be that obvious, since all this tool does is expedite a process a researcher could do in a longer time without the tool.</p>
+<h3 id="how-does-your-projects-impact-on-users-change-as-the-project-scales-up">How does your project's impact on users change as the project scales up?</h3>
+<p>The ethics of web scraping have been discussed in detail, but this tool doesn't do anything new; google does the same thing when it shows info in a box at the top. Therefore, users aren't complicit in any sort of copyright violation or breaking of the law. A high-popularity version of the project would be one of those internet tools that some people just can't live without.</p>
+</body>

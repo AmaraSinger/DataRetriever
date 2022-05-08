@@ -3,27 +3,21 @@ This file should discuss how you implemented your project and why you made the d
 
 ## Technical Decisions
 ### In this section, share and justify the technical decisions you made.
-You don't need to respond to all questions, but you might find some of the following helpful:
-* What design challenge(s) did you run into while completing your project? How did you choose to address them and why?
-* Was there a feature in your project you could have implemented in multiple ways? Which way did you choose, and why?
-* If you used a new technology, what did you learn about this new technology? Did this technology prove to be the right tool?
+My original goal was a bit optimistic; I only ended up getting to the "good" implementation. A challenge I hit was the complexity of creating an html console explorer; I might implement a command-line tool with this functionality at a later date, with no time limit. Under the hood, though, it works similar to how you'd expect. The homepage is made up of two forms: the first sends a post request to the same page that assigns the url. The second sends a get request to the results page and passes the url and the selector. The Scraper class handles the actual scraping and selecting. When a user loads the results page, a Scraper instance scrapes the url, selects the elements, and passes back the elements. The results page handles formatting and element creation. The reason I left the real heavy-lifting to the results page is so there's less wait time on the main page. The "url loading" is a vestigial feature from when there was going to be multiple methods of scraping elements.
+I used dotnet to make this tool; more specifically, ASP.NET. I can't say I reccomend ASP. It's fairly clunkly working in two languages at once, since C# and Javascript have no real interaction (js is client-sided and c# is server-sided, so you can't pass variables from js to c#). Strange, since I normally love C# with really any other use case.
 
 
 
 ## Ethical Decisions
 ### What motivated you to complete this project? What features did you want to create and why?
+The project was designed to be easy to use. I wanted features that didn't take long to get the hang of, and a tool that could easily be re-used over and over again with minimal effort. Thus, data retriever was born. When used in combo with something like SelectorGadget, the tool can use two copy-pastes and two button presses to get data much faster than manual.
 
 
 
 ### Who are the intended users of your project? What do they want, need, or value?
-You should consider your project's users to be those who interact _directly_ with your project, as well as those who might interact with it _indirectly_, through others' use of your project.
+I made this project with research projects in mind. I wanted to make a tool where users could quickly fetch data from sites and turn it into raw text files for quick manipulation. I plan to use this tool myself in research project for quick data compilation. This tool was never meant to access information behind paywalls, which is why it didn't end up using browser spoofing like selenium. Indirect use wouldn't be that obvious, since all this tool does is expedite a process a researcher could do in a longer time without the tool.
 
 
 
 ### How does your project's impact on users change as the project scales up? 
-You might choose one of the following questions to reflect on:
-* How could one of your project's features be misused?
-* Are there any types of users who might have difficulty using your project?
-* If your project becomes widely adopted, are there social concerns you might anticipate?
-
-
+The ethics of web scraping have been discussed in detail, but this tool doesn't do anything new; google does the same thing when it shows info in a box at the top. Therefore, users aren't complicit in any sort of copyright violation or breaking of the law. A high-popularity version of the project would be one of those internet tools that some people just can't live without.
